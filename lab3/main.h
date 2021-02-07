@@ -7,7 +7,6 @@
 #include <stdlib.h>
 
 #define RX_BUF_SIZE 256
-#define TX_BUF_SIZE 256
 
 #define END_CONTROL_CHARACTERS 2
 

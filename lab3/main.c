@@ -170,8 +170,11 @@ void USART1_IRQHandler() {
     if (USART1->SR & USART_SR_RXNE) {
         temp = (char)USART1->DR;
         char prev = RxBuffer[strlen(RxBuffer) - 1];
-        RxBuffer[strlen(RxBuffer)] = temp;
-        if ((prev == '\r' && temp == '\n') || (prev == '\n' && temp == '\r')) {
+        uint32_t buf_length = strlen(RxBuffer);
+        RxBuffer[buf_length++] = temp;
+        if ((prev == '\r' && temp == '\n')
+            || (prev == '\n' && temp == '\r')
+            || buf_length == RX_BUF_SIZE) {
             Command_Handler();
             memset(RxBuffer, 0, sizeof(RxBuffer));
         }
