@@ -160,7 +160,7 @@ void USART_SendChar(USART_TypeDef *const USART, const char c) {
 }
 
 void USART_Transmit(USART_TypeDef *const USART, char *buf) {
-    for (uint16_t i = 0; i < strlen(buf); ++i) {
+    for (size_t i = 0; i < strlen(buf); ++i) {
         USART_SendChar(USART, buf[i]);
     }
 }
@@ -170,7 +170,7 @@ void USART1_IRQHandler() {
     if (USART1->SR & USART_SR_RXNE) {
         temp = (char)USART1->DR;
         char prev = RxBuffer[strlen(RxBuffer) - 1];
-        uint32_t buf_length = strlen(RxBuffer);
+        size_t buf_length = strlen(RxBuffer);
         RxBuffer[buf_length++] = temp;
         if ((prev == '\r' && temp == '\n')
             || (prev == '\n' && temp == '\r')
@@ -182,7 +182,7 @@ void USART1_IRQHandler() {
 }
 
 void Command_Handler() {
-    uint32_t command_length = strlen(RxBuffer) - END_CONTROL_CHARACTERS;
+    size_t command_length = strlen(RxBuffer) - END_CONTROL_CHARACTERS;
     if ((strncmp(RxBuffer, "*IDN?", strlen("*IDN?")) == 0)
         && (command_length == strlen("*IDN?"))) {
             USART_Transmit(USART1, "Skalchenkov_Slepov_IU4-73\r\n");
