@@ -16,13 +16,13 @@ int main() {
 				
         if (!button_is_ready) {
             button_is_ready = button_delay();
-		} else {
+        } else {
             uint16_t prev = counter;
             counter = check_button(counter, reverse);
 		
             if (prev != counter)
                 button_is_ready = 0;
-		}
+        }
         print_number(counter);
     }
 }
@@ -45,14 +45,14 @@ void port_init() {
     GPIOB->CRL &= ~(GPIO_CRL_CNF0 | GPIO_CRL_MODE0);
     GPIOB->CRL &= ~(GPIO_CRL_CNF1 | GPIO_CRL_MODE1);
     
-	// Настройка PA0 на вход
-	// MODE 00 - input mode
-	// CNF 01 - floating input
+    // Настройка PA0 на вход
+    // MODE 00 - input mode
+    // CNF 01 - floating input
     GPIOA->CRL |= GPIO_CRL_CNF0_0;
 
     // Настройка PA1-PA7 и PB0-PB1 на выход
-	// MODE 10 - output mode, max speed 2MHz
-	// CNF 00 - push-pull
+    // MODE 10 - output mode, max speed 2MHz
+    // CNF 00 - push-pull
     GPIOA->CRL |= GPIO_CRL_MODE1_1;
     GPIOA->CRL |= GPIO_CRL_MODE2_1;
     GPIOA->CRL |= GPIO_CRL_MODE3_1;
@@ -83,14 +83,14 @@ void print_number(const uint16_t number) {
     GPIOA->BSRR = RESET;
     match(dozens);
     GPIOB->BSRR = GPIO_BSRR_BS0;
-   	delay(DELAY_VAL);
+    delay(DELAY_VAL);
     GPIOB->BSRR = GPIO_BSRR_BR0;
     
     GPIOA->BSRR = RESET;
     match(ones);
     GPIOB->BSRR = GPIO_BSRR_BS1;
     delay(DELAY_VAL);
-  	GPIOB->BSRR = GPIO_BSRR_BR1;
+    GPIOB->BSRR = GPIO_BSRR_BR1;
 }
 
 void match(const uint16_t pattern) {
@@ -130,8 +130,7 @@ void match(const uint16_t pattern) {
     }
 }
 
-void delay(volatile uint32_t takts)
-{
+void delay(volatile uint32_t takts) {
 	while (takts--);
 }
 
@@ -139,9 +138,9 @@ uint16_t button_delay() {
     static volatile uint16_t delay_val = BUTTON_DELAY_VAL;
     if (delay_val != 0) {
         --delay_val;
-		return 0;
+        return 0;
 	} else {
         delay_val = BUTTON_DELAY_VAL;
-		return 1;
+        return 1;
 	}
 }

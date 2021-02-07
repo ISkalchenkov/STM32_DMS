@@ -29,8 +29,8 @@ void port_init() {
     GPIOB->CRL &= ~(GPIO_CRL_CNF1 | GPIO_CRL_MODE1);
 
     // Настройка PA1-PA7 и PB0-PB1 на выход
-	// MODE 10 - output mode, max speed 2MHz
-	// CNF 00 - push-pull
+    // MODE 10 - output mode, max speed 2MHz
+    // CNF 00 - push-pull
     GPIOA->CRL |= GPIO_CRL_MODE1_1;
     GPIOA->CRL |= GPIO_CRL_MODE2_1;
     GPIOA->CRL |= GPIO_CRL_MODE3_1;
@@ -51,8 +51,8 @@ void button_init() {
     GPIOA->CRL &= ~(GPIO_CRL_CNF0 | GPIO_CRL_MODE0);
     
     // Настройка PA0 на вход
-	// MODE 00 - input mode
-	// CNF 01 - floating input
+    // MODE 00 - input mode
+    // CNF 01 - floating input
     GPIOA->CRL |= GPIO_CRL_CNF0_0;
     
     AFIO->EXTICR[0] |= AFIO_EXTICR1_EXTI0_PA;   // Конфигурация мультиплексора канала EXTI0
