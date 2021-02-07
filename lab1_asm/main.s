@@ -18,7 +18,7 @@ Reset_Handler	PROC					; Вектор сброса
 			(RCC_APB2ENR-PERIPH_BASE) * 32 + \
 			2 * 4						; вычисляем адрес для BitBanding 2-го бита регистра RCC_APB2ENR
 										; BitAddress = BitBandBase + (RegAddr * 32) + BitNumber * 4
-	MOV		R1, #1						; включаем тактирование порта A (в 2-й бит RCC_APB2ENR пишем '1`)
+	MOV		R1, #1						; включаем тактирование порта A (в 2-й бит RCC_APB2ENR пишем '1')
 	STR		R1, [R0]					; загружаем это значение
 		
 	MOV32	R0, GPIOA_CRL				; адрес порта GPIOA_CRL
@@ -41,7 +41,7 @@ Reset_Handler	PROC					; Вектор сброса
 			(RCC_APB2ENR-PERIPH_BASE) * 32 + \
 			3 * 4						; вычисляем адрес для BitBanding 3-го бита регистра RCC_APB2ENR
 										; BitAddress = BitBandBase + (RegAddr * 32) + BitNumber * 4
-	MOV		R1, #1						; включаем тактирование порта B (в 3-й бит RCC_APB2ENR пишем '1`)
+	MOV		R1, #1						; включаем тактирование порта B (в 3-й бит RCC_APB2ENR пишем '1')
 	STR		R1, [R0]					; загружаем это значение
 	
 	MOV32	R0, GPIOB_CRL				; адрес порта GPIOB_CRL
