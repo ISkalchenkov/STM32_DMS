@@ -175,8 +175,8 @@ void USART1_IRQHandler() {
         if ((prev == '\r' && temp == '\n')
             || (prev == '\n' && temp == '\r')
             || buf_length == RX_BUF_SIZE) {
-            Command_Handler();
-            memset(RxBuffer, 0, sizeof(RxBuffer));
+                Command_Handler();
+                memset(RxBuffer, 0, sizeof(RxBuffer));
         }
     }
 }
