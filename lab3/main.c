@@ -159,7 +159,7 @@ void USART_SendChar(USART_TypeDef *const USART, const char c) {
     while(!(USART->SR & USART_SR_TC));
 }
 
-void USART_Transmit(USART_TypeDef *const USART, char *buf) {
+void USART_Transmit(USART_TypeDef *const USART, const char *buf) {
     for (size_t i = 0; i < strlen(buf); ++i) {
         USART_SendChar(USART, buf[i]);
     }

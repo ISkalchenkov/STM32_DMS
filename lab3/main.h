@@ -36,7 +36,7 @@ void TIM2_init(void);
 void USART1_init(void);
 
 void USART_SendChar(USART_TypeDef *const USART, const char c);
-void USART_Transmit(USART_TypeDef *const USART, char *buf);
+void USART_Transmit(USART_TypeDef *const USART, const char *buf);
 void Command_Handler(void);
 
 void match(const uint16_t pattern);
