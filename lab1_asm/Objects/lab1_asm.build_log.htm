@@ -21,26 +21,27 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.6.0
 Dialog DLL:      TCM.DLL V1.46.0.0
  
 <h2>Project:</h2>
-D:\University\Leo_labs\lab1_asm\lab1_asm.uvprojx
-Project File Date:  12/05/2020
+D:\Github\STM32_DMS\lab1_asm\lab1_asm.uvprojx
+Project File Date:  02/18/2021
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.14.1', folder: 'D:\keil\Core\ARM\ARMCLANG\Bin'
 Rebuild target 'Target 1'
 "config.s", line 9: Warning: A1876W: Use of '|' as a synonym for the :OR: operator is deprecated.
+    9 00000000 ONE   EQU GPIO_BSRR_BS1 | GPIO_BSRR_BS4 | GPIO_BSRR_BS5 | GPIO_BSRR_BS6 | GPIO_BSRR_BS7
+0 Errors, 1 Warning
+assembling config.s...
+assembling stm32f10x.s...
+"config.s", line 9: Warning: A1876W: Use of '|' as a synonym for the :OR: operator is deprecated.
     included by GET/INCLUDE directive from "main.s", line 4
     9 00000000 ONE   EQU GPIO_BSRR_BS1 | GPIO_BSRR_BS4 | GPIO_BSRR_BS5 | GPIO_BSRR_BS6 | GPIO_BSRR_BS7
 0 Errors, 1 Warning
 assembling main.s...
-assembling stm32f10x.s...
-"config.s", line 9: Warning: A1876W: Use of '|' as a synonym for the :OR: operator is deprecated.
-    9 00000000 ONE   EQU GPIO_BSRR_BS1 | GPIO_BSRR_BS4 | GPIO_BSRR_BS5 | GPIO_BSRR_BS6 | GPIO_BSRR_BS7
-0 Errors, 1 Warning
-assembling config.s...
 linking...
 .\Objects\lab1_asm.axf: Warning: L6320W: Ignoring --first command. Cannot find argument '__Vectors'.
 Program Size: Code=424 RO-data=0 RW-data=0 ZI-data=0  
 Finished: 0 information, 1 warning and 0 error messages.
+FromELF: creating hex file...
 ".\Objects\lab1_asm.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
